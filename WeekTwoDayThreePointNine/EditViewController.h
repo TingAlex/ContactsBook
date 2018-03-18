@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  EditViewController.h
 //  WeekTwoDayThreePointNine
 //
 //  Created by OurEDA on 2018/3/14.
@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NewContactViewController.h"
-#import "DetialsViewController.h"
-@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
-
+@interface EditViewController : UIViewController<UITextFieldDelegate>
+@property (nonatomic,assign) NSString *uuid;
 
 @end
-

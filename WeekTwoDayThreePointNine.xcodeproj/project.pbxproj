@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4100B499026ED30693EC358 /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = C4100D391D143ABA9C6CE522 /* NSString+PinYin.m */; };
 		FA1B294C2059347800ED5175 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B294B2059347800ED5175 /* AppDelegate.m */; };
 		FA1B294F2059347800ED5175 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B294E2059347800ED5175 /* ViewController.m */; };
 		FA1B29522059347800ED5175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1B29502059347800ED5175 /* Main.storyboard */; };
@@ -16,6 +17,13 @@
 		FA1B295D2059347800ED5175 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B295C2059347800ED5175 /* main.m */; };
 		FA1B29672059347800ED5175 /* WeekTwoDayThreePointNineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B29662059347800ED5175 /* WeekTwoDayThreePointNineTests.m */; };
 		FA1B29722059347800ED5175 /* WeekTwoDayThreePointNineUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B29712059347800ED5175 /* WeekTwoDayThreePointNineUITests.m */; };
+		FA1B29822059356700ED5175 /* DetialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B29802059356700ED5175 /* DetialsViewController.m */; };
+		FA1B29832059356700ED5175 /* DetialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B29812059356700ED5175 /* DetialsViewController.xib */; };
+		FA1B29872059358200ED5175 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B29852059358200ED5175 /* EditViewController.m */; };
+		FA1B29882059358200ED5175 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B29862059358200ED5175 /* EditViewController.xib */; };
+		FA1B298C2059359400ED5175 /* NewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B298A2059359400ED5175 /* NewContactViewController.m */; };
+		FA1B298D2059359400ED5175 /* NewContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B298B2059359400ED5175 /* NewContactViewController.xib */; };
+		FA5D3C022059FD3900ECFD29 /* Contacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5D3C012059FD3900ECFD29 /* Contacts.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C41004E4AE53268DF95911D5 /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
+		C4100D391D143ABA9C6CE522 /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
 		FA1B29472059347800ED5175 /* WeekTwoDayThreePointNine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekTwoDayThreePointNine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1B294A2059347800ED5175 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA1B294B2059347800ED5175 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -53,6 +63,16 @@
 		FA1B296D2059347800ED5175 /* WeekTwoDayThreePointNineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeekTwoDayThreePointNineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1B29712059347800ED5175 /* WeekTwoDayThreePointNineUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeekTwoDayThreePointNineUITests.m; sourceTree = "<group>"; };
 		FA1B29732059347800ED5175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA1B297F2059356700ED5175 /* DetialsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetialsViewController.h; sourceTree = "<group>"; };
+		FA1B29802059356700ED5175 /* DetialsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetialsViewController.m; sourceTree = "<group>"; };
+		FA1B29812059356700ED5175 /* DetialsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetialsViewController.xib; sourceTree = "<group>"; };
+		FA1B29842059358200ED5175 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		FA1B29852059358200ED5175 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		FA1B29862059358200ED5175 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		FA1B29892059359400ED5175 /* NewContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewContactViewController.h; sourceTree = "<group>"; };
+		FA1B298A2059359400ED5175 /* NewContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewContactViewController.m; sourceTree = "<group>"; };
+		FA1B298B2059359400ED5175 /* NewContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewContactViewController.xib; sourceTree = "<group>"; };
+		FA5D3C012059FD3900ECFD29 /* Contacts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contacts.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4100D0E05E26232DE30175A /* NSString+PinYin */ = {
+			isa = PBXGroup;
+			children = (
+				C41004E4AE53268DF95911D5 /* NSString+PinYin.h */,
+				C4100D391D143ABA9C6CE522 /* NSString+PinYin.m */,
+			);
+			path = "NSString+PinYin";
+			sourceTree = "<group>";
+		};
 		FA1B293E2059347800ED5175 = {
 			isa = PBXGroup;
 			children = (
@@ -103,16 +132,27 @@
 		FA1B29492059347800ED5175 /* WeekTwoDayThreePointNine */ = {
 			isa = PBXGroup;
 			children = (
+				FA5D3C012059FD3900ECFD29 /* Contacts.plist */,
+				FA1B29582059347800ED5175 /* LaunchScreen.storyboard */,
 				FA1B294A2059347800ED5175 /* AppDelegate.h */,
 				FA1B294B2059347800ED5175 /* AppDelegate.m */,
 				FA1B294D2059347800ED5175 /* ViewController.h */,
 				FA1B294E2059347800ED5175 /* ViewController.m */,
 				FA1B29502059347800ED5175 /* Main.storyboard */,
 				FA1B29562059347800ED5175 /* Assets.xcassets */,
-				FA1B29582059347800ED5175 /* LaunchScreen.storyboard */,
 				FA1B295B2059347800ED5175 /* Info.plist */,
 				FA1B295C2059347800ED5175 /* main.m */,
 				FA1B29532059347800ED5175 /* WeekTwoDayThreePointNine.xcdatamodeld */,
+				FA1B297F2059356700ED5175 /* DetialsViewController.h */,
+				FA1B29802059356700ED5175 /* DetialsViewController.m */,
+				FA1B29812059356700ED5175 /* DetialsViewController.xib */,
+				FA1B29842059358200ED5175 /* EditViewController.h */,
+				FA1B29852059358200ED5175 /* EditViewController.m */,
+				FA1B29862059358200ED5175 /* EditViewController.xib */,
+				FA1B29892059359400ED5175 /* NewContactViewController.h */,
+				FA1B298A2059359400ED5175 /* NewContactViewController.m */,
+				FA1B298B2059359400ED5175 /* NewContactViewController.xib */,
+				C4100D0E05E26232DE30175A /* NSString+PinYin */,
 			);
 			path = WeekTwoDayThreePointNine;
 			sourceTree = "<group>";
@@ -243,7 +283,11 @@
 			files = (
 				FA1B295A2059347800ED5175 /* LaunchScreen.storyboard in Resources */,
 				FA1B29572059347800ED5175 /* Assets.xcassets in Resources */,
+				FA1B298D2059359400ED5175 /* NewContactViewController.xib in Resources */,
+				FA1B29882059358200ED5175 /* EditViewController.xib in Resources */,
 				FA1B29522059347800ED5175 /* Main.storyboard in Resources */,
+				FA1B29832059356700ED5175 /* DetialsViewController.xib in Resources */,
+				FA5D3C022059FD3900ECFD29 /* Contacts.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1B294F2059347800ED5175 /* ViewController.m in Sources */,
+				FA1B29822059356700ED5175 /* DetialsViewController.m in Sources */,
 				FA1B29552059347800ED5175 /* WeekTwoDayThreePointNine.xcdatamodeld in Sources */,
 				FA1B295D2059347800ED5175 /* main.m in Sources */,
+				FA1B29872059358200ED5175 /* EditViewController.m in Sources */,
 				FA1B294C2059347800ED5175 /* AppDelegate.m in Sources */,
+				FA1B298C2059359400ED5175 /* NewContactViewController.m in Sources */,
+				C4100B499026ED30693EC358 /* NSString+PinYin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
