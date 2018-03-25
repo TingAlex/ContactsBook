@@ -64,30 +64,52 @@
     NewContactViewController *myNewContactVC = [[NewContactViewController alloc] init];
     [self.navigationController pushViewController:myNewContactVC animated:YES];
 }
+
 //*****************Changed*********************
 - (nonnull UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *reusableFlag = @"resuableFlag";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reusableFlag];
-    //    UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseflag"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reusableFlag];
-        NSLog(@"______");
+
+    if (indexPath.section == 0) {
+        UserselfCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserselfCell"];
+        if (cell == nil) {
+            cell = [[UserselfCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UserselfCell"];
+            NSLog(@"______");
+        }
+
+        cell.UserShortPicImageView.image = [UIImage imageNamed:@"message.jpg"];
+        cell.UserShortPicImageView.contentMode = UIViewContentModeScaleAspectFill;
+        cell.UserNameLabel.text = @"Shi Chongzheng";
+        cell.UserTelLabel.text = @"18340853573";
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reusableFlag];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reusableFlag];
+            NSLog(@"______");
+        }
+        NSDictionary *dict = self.demoArray[indexPath.section - 1];
+        NSMutableArray *array = dict[@"content"];
+        cell.textLabel.text = [[array objectAtIndex:[indexPath row]] objectForKey:@"Name"];
+        return cell;
     }
-    NSDictionary *dict = self.demoArray[indexPath.section];
-    NSMutableArray *array = dict[@"content"];
-    cell.textLabel.text = [[array objectAtIndex:[indexPath row]] objectForKey:@"Name"];
-    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 80;
+    }
+    return 44;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.demoArray count];
+    return [self.demoArray count] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
     } else {
-        NSDictionary *dict = self.demoArray[section];
+        NSDictionary *dict = self.demoArray[section - 1];
         NSMutableArray *array = dict[@"content"];
         return [array count];
     }
@@ -95,7 +117,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dict = self.demoArray[indexPath.section];
+    if ([indexPath section] == 0) {
+        return;
+    }
+    NSDictionary *dict = self.demoArray[indexPath.section - 1];
     NSMutableArray *array = dict[@"content"];
     DetialsViewController *detial = [[DetialsViewController alloc] initWithNibName:@"DetialsViewController" bundle:nil];
     detial.uuid = [[array objectAtIndex:[indexPath row]] objectForKey:@"ID"];
@@ -104,7 +129,6 @@
     NSLog(@"show uuid : %@", detial.uuid);
     [self.navigationController pushViewController:detial animated:YES];
 //    NSLog(@"selected index: %ld",selectedIndex+1);
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,9 +147,13 @@
 
 //添加TableView头视图标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSDictionary *dict = self.demoArray[section];
-    NSString *title = dict[@"firstLetter"];
-    return title;
+    if (section == 0) {
+        return nil;
+    } else {
+        NSDictionary *dict = self.demoArray[section - 1];
+        NSString *title = dict[@"firstLetter"];
+        return title;
+    }
 }
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C410030E2A46251A8BB0B7AF /* UserselfCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41006B19AE777460CF998A6 /* UserselfCell.m */; };
 		C4100B499026ED30693EC358 /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = C4100D391D143ABA9C6CE522 /* NSString+PinYin.m */; };
 		FA1B294C2059347800ED5175 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B294B2059347800ED5175 /* AppDelegate.m */; };
 		FA1B294F2059347800ED5175 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B294E2059347800ED5175 /* ViewController.m */; };
@@ -45,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		C41004E4AE53268DF95911D5 /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
+		C41006B19AE777460CF998A6 /* UserselfCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserselfCell.m; sourceTree = "<group>"; };
+		C410075A917C360D62C2257B /* UserselfCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserselfCell.h; sourceTree = "<group>"; };
 		C4100D391D143ABA9C6CE522 /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
 		FA1B29472059347800ED5175 /* WeekTwoDayThreePointNine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeekTwoDayThreePointNine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1B294A2059347800ED5175 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				FA1B298A2059359400ED5175 /* NewContactViewController.m */,
 				FA1B298B2059359400ED5175 /* NewContactViewController.xib */,
 				C4100D0E05E26232DE30175A /* NSString+PinYin */,
+				C410075A917C360D62C2257B /* UserselfCell.h */,
+				C41006B19AE777460CF998A6 /* UserselfCell.m */,
 			);
 			path = WeekTwoDayThreePointNine;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				FA1B294C2059347800ED5175 /* AppDelegate.m in Sources */,
 				FA1B298C2059359400ED5175 /* NewContactViewController.m in Sources */,
 				C4100B499026ED30693EC358 /* NSString+PinYin.m in Sources */,
+				C410030E2A46251A8BB0B7AF /* UserselfCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

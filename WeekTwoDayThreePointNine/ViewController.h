@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewContactViewController.h"
 #import "DetialsViewController.h"
+#import "UserselfCell.h"
 @interface ViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
 
 
