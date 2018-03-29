@@ -12,12 +12,14 @@
 #import "NewContactViewController.h"
 #import "EditViewController.h"
 #import "DetialsViewController.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic) UIWindow *window;
 
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
-@property (strong,nonatomic) UINavigationController *viewController;
+@property(readonly, strong) NSPersistentContainer *persistentContainer;
+@property(strong, nonatomic) UINavigationController *viewController;
+
 - (void)saveContext;
 
 

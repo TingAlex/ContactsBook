@@ -10,7 +10,9 @@
 #import "NewContactViewController.h"
 #import "DetialsViewController.h"
 #import "UserselfCell.h"
-@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
+#import "Person+CoreDataClass.h"
+
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
 
 
 @end

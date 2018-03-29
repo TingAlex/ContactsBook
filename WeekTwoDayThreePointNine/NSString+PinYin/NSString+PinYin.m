@@ -260,8 +260,8 @@ static char firstLetterArray[HANZI_COUNT] =
                  forKey:[NSString stringWithUTF8String:(const char *) &i]];
     }
 
-    for (NSDictionary *dic in self) {
-        NSString *words=[dic objectForKey:@"Name"];
+    for (NSManagedObject *dic in self) {
+        NSString *words = [dic valueForKey:@"Name"];
         NSString *firstLetter = [words getFirstLetter];
         NSMutableArray *array = dict[firstLetter];
         [array addObject:dic];
@@ -273,8 +273,8 @@ static char firstLetterArray[HANZI_COUNT] =
         NSMutableArray *array = dict[firstLetter];
         if ([array count]) {
             [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                NSString *word1 = [obj1 objectForKey:@"Name"];
-                NSString *word2 = [obj2 objectForKey:@"Name"];
+                NSString *word1 = [obj1 valueForKey:@"Name"];
+                NSString *word2 = [obj2 valueForKey:@"Name"];
                 return [word1 localizedCompare:word2];
             }];
             NSDictionary *resultDict = @{@"firstLetter": firstLetter,

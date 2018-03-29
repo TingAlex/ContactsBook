@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "EditViewController.h"
+#import "Person+CoreDataClass.h"
 
 @interface DetialsViewController : UIViewController
-@property (nonatomic,assign) NSString *uuid;
+@property(nonatomic, assign) NSString *uuid;
 @end

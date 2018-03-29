@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Person+CoreDataClass.h"
 
-@interface NewContactViewController : UIViewController<UITextFieldDelegate>
+@interface NewContactViewController : UIViewController <UITextFieldDelegate>
 
 @end

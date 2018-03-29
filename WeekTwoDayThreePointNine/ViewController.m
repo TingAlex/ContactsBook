@@ -11,37 +11,60 @@
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property(strong, nonatomic) NSArray *demoArray;
-@property(strong, nonatomic) NSUserDefaults *myUserDefaults;
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) UIButton *addContactButton;
-@property(nonatomic, strong) NSDictionary *dict;
-@property(nonatomic, strong) NSMutableDictionary *sandboxDic;
-@property(nonatomic, strong) NSString *filePath;
+
 @end
 
-@implementation ViewController
-
+@implementation ViewController {
+    NSManagedObjectContext *context;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *plistPath = [bundle pathForResource:@"Contacts" ofType:@"plist"];
-    self.dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-    self.filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
-            stringByAppendingPathComponent:@"/Contacts.plist"];
-    //将工程中的数据新字典写入沙盒
-    [self.dict writeToFile:self.filePath atomically:YES];
-    self.sandboxDic = [[NSMutableDictionary alloc] initWithContentsOfFile:self.filePath];
-//    NSLog(@"sandbox:");
-//    NSLog(@"%@",sandboxDic);
-//    NSLog(@"%@",self.dict.allValues);
-    self.demoArray = [self.sandboxDic allValues];
-    NSLog(@"%@", self.demoArray);
+
+    NSError *error = nil;
+    NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+
+    NSString *docs = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSURL *url = [NSURL fileURLWithPath:[docs stringByAppendingString:@"Person.sqlite"]];
+
+    NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
+    if (store == nil) {
+        [NSException raise:@"DB Error" format:@"%@", [error localizedDescription]];
+    }
+
+    context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    context.persistentStoreCoordinator = psc;
+
+    //-------------------
+//    NSManagedObject *s1 = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
+//    [s1 setValue:@"小明" forKey:@"name"];
+//    [s1 setValue:@"001" forKey:@"uid"];
+//    [s1 setValue:@"ssdut.dlut.edu.cn" forKey:@"email"];
+//    [s1 setValue:@"1234235433" forKey:@"tel"];
+//
+//    if ([context save:&error]) {
+//        NSLog(@"Succeed!");
+//    } else {
+//        [NSException raise:@"插入错误" format:@"%@", [error localizedDescription]];
+//    }
+//--------------------
+
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:context];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid LIKE '*'"];
+    request.predicate = predicate;
+
+    self.demoArray = [context executeFetchRequest:request error:&error];
+    if (error) {
+        [NSException raise:@"查询错误" format:@"%@", [error localizedDescription]];
+    }
+    //After sort:
     self.demoArray = [self.demoArray arrayWithPinYinFirstLetterFormat];
     NSLog(@"%@", self.demoArray);
-//    self.demoArray=[NSArray arrayWithContentsOfFile:plistPath];
-//    NSLog(@"%@",[[self.dict objectForKey:self.demoArray[0]] objectForKey:@"Name"]);
-    self.myUserDefaults = [NSUserDefaults standardUserDefaults];
+
     CGRect screen = [[UIScreen mainScreen] bounds];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, screen.size.width, screen.size.height - 100) style:UITableViewStylePlain];
     self.tableView.dataSource = self;
@@ -52,10 +75,6 @@
     [self.addContactButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [self.addContactButton addTarget:self action:@selector(addContactsButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.addContactButton];
-//    for (int i = 0; i < 10; i++) {
-//        NSString *uuid = [NSUUID UUID].UUIDString;
-//        NSLog(@"uuid= %@", uuid);
-//    }
 
 }
 
@@ -65,7 +84,6 @@
     [self.navigationController pushViewController:myNewContactVC animated:YES];
 }
 
-//*****************Changed*********************
 - (nonnull UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *reusableFlag = @"resuableFlag";
 
@@ -89,7 +107,7 @@
         }
         NSDictionary *dict = self.demoArray[indexPath.section - 1];
         NSMutableArray *array = dict[@"content"];
-        cell.textLabel.text = [[array objectAtIndex:[indexPath row]] objectForKey:@"Name"];
+        cell.textLabel.text = [[array objectAtIndex:[indexPath row]] valueForKey:@"Name"];
         return cell;
     }
 }
@@ -113,7 +131,6 @@
         NSMutableArray *array = dict[@"content"];
         return [array count];
     }
-//    return [self.demoArray count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,12 +140,10 @@
     NSDictionary *dict = self.demoArray[indexPath.section - 1];
     NSMutableArray *array = dict[@"content"];
     DetialsViewController *detial = [[DetialsViewController alloc] initWithNibName:@"DetialsViewController" bundle:nil];
-    detial.uuid = [[array objectAtIndex:[indexPath row]] objectForKey:@"ID"];
-//    NSInteger selectedIndex = [indexPath row];
-//    detial.uuid= [[self.demoArray objectAtIndex:selectedIndex] objectForKey:@"ID"];
+    detial.uuid = [[array objectAtIndex:[indexPath row]] valueForKey:@"uid"];
+
     NSLog(@"show uuid : %@", detial.uuid);
     [self.navigationController pushViewController:detial animated:YES];
-//    NSLog(@"selected index: %ld",selectedIndex+1);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,8 +152,30 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.sandboxDic = [[NSMutableDictionary alloc] initWithContentsOfFile:self.filePath];
-    self.demoArray = [self.sandboxDic allValues];
+    NSError *error = nil;
+    NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+
+    NSString *docs = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSURL *url = [NSURL fileURLWithPath:[docs stringByAppendingString:@"Person.sqlite"]];
+
+    NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
+    if (store == nil) {
+        [NSException raise:@"DB Error" format:@"%@", [error localizedDescription]];
+    }
+
+    context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    context.persistentStoreCoordinator = psc;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:context];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"uid LIKE '*'"];
+    request.predicate = predicate;
+
+    self.demoArray = [context executeFetchRequest:request error:&error];
+    if (error) {
+        [NSException raise:@"查询错误" format:@"%@", [error localizedDescription]];
+    }
     self.demoArray = [self.demoArray arrayWithPinYinFirstLetterFormat];
     [self.tableView reloadData];
 }

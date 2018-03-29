@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NewContactViewController.h"
-@interface EditViewController : UIViewController<UITextFieldDelegate>
-@property (nonatomic,assign) NSString *uuid;
+#import "Person+CoreDataClass.h"
+
+@interface EditViewController : UIViewController <UITextFieldDelegate>
+@property(nonatomic, assign) NSString *uuid;
 
 @end

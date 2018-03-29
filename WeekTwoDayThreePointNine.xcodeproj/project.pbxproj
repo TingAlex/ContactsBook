@@ -24,7 +24,8 @@
 		FA1B29882059358200ED5175 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B29862059358200ED5175 /* EditViewController.xib */; };
 		FA1B298C2059359400ED5175 /* NewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1B298A2059359400ED5175 /* NewContactViewController.m */; };
 		FA1B298D2059359400ED5175 /* NewContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1B298B2059359400ED5175 /* NewContactViewController.xib */; };
-		FA5D3C022059FD3900ECFD29 /* Contacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5D3C012059FD3900ECFD29 /* Contacts.plist */; };
+		FAAC1AAC206CBB5600AEF807 /* Person+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC1AA9206CBB5600AEF807 /* Person+CoreDataClass.m */; };
+		FAAC1AAD206CBB5600AEF807 /* Person+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC1AAB206CBB5600AEF807 /* Person+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,10 @@
 		FA1B29892059359400ED5175 /* NewContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewContactViewController.h; sourceTree = "<group>"; };
 		FA1B298A2059359400ED5175 /* NewContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewContactViewController.m; sourceTree = "<group>"; };
 		FA1B298B2059359400ED5175 /* NewContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewContactViewController.xib; sourceTree = "<group>"; };
-		FA5D3C012059FD3900ECFD29 /* Contacts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contacts.plist; sourceTree = "<group>"; };
+		FAAC1AA8206CBB5600AEF807 /* Person+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+CoreDataClass.h"; sourceTree = "<group>"; };
+		FAAC1AA9206CBB5600AEF807 /* Person+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+CoreDataClass.m"; sourceTree = "<group>"; };
+		FAAC1AAA206CBB5600AEF807 /* Person+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FAAC1AAB206CBB5600AEF807 /* Person+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +139,10 @@
 		FA1B29492059347800ED5175 /* WeekTwoDayThreePointNine */ = {
 			isa = PBXGroup;
 			children = (
-				FA5D3C012059FD3900ECFD29 /* Contacts.plist */,
+				FAAC1AA8206CBB5600AEF807 /* Person+CoreDataClass.h */,
+				FAAC1AA9206CBB5600AEF807 /* Person+CoreDataClass.m */,
+				FAAC1AAA206CBB5600AEF807 /* Person+CoreDataProperties.h */,
+				FAAC1AAB206CBB5600AEF807 /* Person+CoreDataProperties.m */,
 				FA1B29582059347800ED5175 /* LaunchScreen.storyboard */,
 				FA1B294A2059347800ED5175 /* AppDelegate.h */,
 				FA1B294B2059347800ED5175 /* AppDelegate.m */,
@@ -292,7 +299,6 @@
 				FA1B29882059358200ED5175 /* EditViewController.xib in Resources */,
 				FA1B29522059347800ED5175 /* Main.storyboard in Resources */,
 				FA1B29832059356700ED5175 /* DetialsViewController.xib in Resources */,
-				FA5D3C022059FD3900ECFD29 /* Contacts.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +327,8 @@
 				FA1B29822059356700ED5175 /* DetialsViewController.m in Sources */,
 				FA1B29552059347800ED5175 /* WeekTwoDayThreePointNine.xcdatamodeld in Sources */,
 				FA1B295D2059347800ED5175 /* main.m in Sources */,
+				FAAC1AAC206CBB5600AEF807 /* Person+CoreDataClass.m in Sources */,
+				FAAC1AAD206CBB5600AEF807 /* Person+CoreDataProperties.m in Sources */,
 				FA1B29872059358200ED5175 /* EditViewController.m in Sources */,
 				FA1B294C2059347800ED5175 /* AppDelegate.m in Sources */,
 				FA1B298C2059359400ED5175 /* NewContactViewController.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Person+CoreDataClass.h"
 @interface NSString (PinYin)
 
 /*
